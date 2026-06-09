@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: resume-matcher-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free              # embeddings run on the Jina API, so no heavy local model
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: resume-matcher-db
+          property: connectionString
+      - key: GROQ_API_KEY
+        sync: false          # set in the Render dashboard (AI suggestions)
+      - key: JINA_API_KEY
+        sync: false          # set in the Render dashboard (embeddings)
+      - key: CORS_ORIGINS
+        sync: false          # set to your Vercel URL, e.g. https://your-app.vercel.app
+
+databases:
+  - name: resume-matcher-db
+    plan: free

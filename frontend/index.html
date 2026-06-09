@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Priority 5 — viewport-meta: never disable zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Priority 3 — font-preload: preconnect for faster font load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>FitCheck — Resume Fit Analyzer</title>
+    <meta name="description" content="Upload your resume and a job description to get an explainable fit score with skill gap analysis." />
+  </head>
+  <body>
+    <!-- Priority 1 — skip-links: keyboard users can jump past nav -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-green-800 focus:rounded-lg focus:shadow-lg focus:font-semibold focus:text-sm"
+    >
+      Skip to main content
+    </a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
